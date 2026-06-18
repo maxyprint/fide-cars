@@ -193,7 +193,7 @@ body.menu-open .mobile-backdrop { display: block; }
 .hero-bg {
   position: absolute; inset: -10% 0;
   background-image: url('../images/hero.jpg');
-  background-size: cover; background-position: center center;
+  background-size: cover; background-position: center 60%;
 }
 .hero-right::after {
   content: '';
@@ -588,7 +588,7 @@ footer {
     min-height: 260px;
     max-height: 480px;
   }
-  .hero-bg { inset: 0; background-position: center center; }
+  .hero-bg { inset: 0; background-position: center 60%; }
   .hero-right::after { display: none; }  /* no gradient on image block */
   .hero-img-mobile { display: none; }    /* only bg used, img is fallback */
   .hero-left {
