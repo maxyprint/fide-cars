@@ -45,21 +45,30 @@
         if (backdrop) backdrop.classList.add('is-visible');
         document.body.classList.add('menu-open');
         hamburger.setAttribute('aria-expanded', 'true');
-        if (lenis) lenis.stop();
+        // Do NOT stop Lenis — scrollTo must work when a link is tapped
       }
       function closeMenu() {
         mobileMenu.classList.remove('is-open');
         if (backdrop) backdrop.classList.remove('is-visible');
         document.body.classList.remove('menu-open');
         hamburger.setAttribute('aria-expanded', 'false');
-        if (lenis) lenis.start();
       }
+
       hamburger.addEventListener('click', function () {
         mobileMenu.classList.contains('is-open') ? closeMenu() : openMenu();
       });
+
+      // ✕ close button
+      var closeBtn = mobileMenu.querySelector('.mobile-menu-close');
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
       if (backdrop) backdrop.addEventListener('click', closeMenu);
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-      mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+      // Close menu first, then let anchor scroll listener handle navigation
+      mobileMenu.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', closeMenu);
+      });
     }
 
     // ── GSAP Animationen ───────────────────────────────────────────────

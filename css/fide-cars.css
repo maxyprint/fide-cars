@@ -134,6 +134,7 @@ img { display: block; max-width: 100%; }
   background: none; border: none; color: rgba(255,255,255,0.5);
   font-size: 1.2rem; cursor: pointer; padding: 8px;
 }
+body.menu-open { overflow: hidden; }
 body.menu-open .mobile-menu { display: flex; }
 body.menu-open .mobile-backdrop { display: block; }
 
