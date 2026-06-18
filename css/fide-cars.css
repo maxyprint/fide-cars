@@ -254,6 +254,7 @@ body.menu-open .mobile-backdrop { display: block; }
 
 /* ── SECTION BASICS ──────────────────────────────────────────────────── */
 section { padding: 100px 0; }
+.hero { padding: 0; } /* hero has its own internal spacing */
 .section-kicker {
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 0.72rem; font-weight: 600;
@@ -588,9 +589,10 @@ footer {
   .hero-right {
     order: -1;              /* image comes first */
     position: relative;
-    height: 60vw;
-    min-height: 260px;
-    max-height: 480px;
+    /* 765:1080 image ratio = ~71% → show ~75vw height for good crop */
+    height: 110vw;
+    max-height: 70vh;
+    min-height: 300px;
   }
   .hero-bg { inset: 0; background-size: cover; background-position: center center; }
   .hero-right::after {
