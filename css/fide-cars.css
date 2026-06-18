@@ -602,7 +602,7 @@ footer {
   .hero-img-mobile { display: none; }    /* only bg used, img is fallback */
   .hero-left {
     position: relative; z-index: 2;
-    padding: 48px 24px 64px;
+    padding: 24px 24px 56px;
     justify-content: flex-start;
     background: var(--color-bg);
     min-height: unset;
