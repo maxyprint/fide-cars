@@ -193,7 +193,7 @@ body.menu-open .mobile-backdrop { display: block; }
 .hero-bg {
   position: absolute; inset: -10% 0;
   background-image: url('../images/hero.jpg');
-  background-size: cover; background-position: center;
+  background-size: cover; background-position: 40% center;
 }
 .hero-right::after {
   content: '';
@@ -575,12 +575,29 @@ footer {
 
 /* Tablet (≤ 900px) */
 @media (max-width: 900px) {
-  /* Hero — BG behind stacked text */
-  .hero { grid-template-columns: 1fr; min-height: 100svh; position: relative; }
-  .hero-left { padding: 120px 24px 64px; justify-content: flex-end; position: relative; z-index: 2; min-height: 100svh; }
-  .hero-right { position: absolute; inset: 0; z-index: 0; }
-  .hero-right::after { background: linear-gradient(to top, var(--color-bg) 38%, rgba(12,12,18,0.55) 100%); }
-  .hero-bg { inset: 0; }
+  /* Hero — image on top, text below (no cursed overlay) */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: unset;
+  }
+  .hero-right {
+    order: -1;              /* image comes first */
+    position: relative;
+    height: 60vw;
+    min-height: 260px;
+    max-height: 480px;
+  }
+  .hero-bg { inset: 0; background-position: 40% center; }
+  .hero-right::after { display: none; }  /* no gradient on image block */
+  .hero-img-mobile { display: none; }    /* only bg used, img is fallback */
+  .hero-left {
+    position: relative; z-index: 2;
+    padding: 48px 24px 64px;
+    justify-content: flex-start;
+    background: var(--color-bg);
+    min-height: unset;
+  }
   .hero-h1 { font-size: clamp(3rem, 10vw, 5rem); }
   .hero-sub { max-width: 100%; }
 
