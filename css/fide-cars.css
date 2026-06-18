@@ -566,43 +566,96 @@ footer {
 .animate-delay-3 { transition-delay: 0.30s; }
 
 /* ── MOBILE ──────────────────────────────────────────────────────────── */
+
+/* Touch: disable hover side-effects */
+@media (hover: none) {
+  .bento-card:hover { transform: none; }
+  .leistung-card:hover { transform: none; box-shadow: none; }
+}
+
+/* Tablet (≤ 900px) */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; min-height: 100svh; }
-  .hero-left { padding: 100px 28px 60px; justify-content: flex-end; position: relative; z-index: 2; }
-  .hero-right { position: absolute; inset: 0; }
-  .hero-right::after { background: linear-gradient(to top, var(--color-bg) 40%, rgba(12,12,18,0.6) 100%); }
+  /* Hero — BG behind stacked text */
+  .hero { grid-template-columns: 1fr; min-height: 100svh; position: relative; }
+  .hero-left { padding: 120px 24px 64px; justify-content: flex-end; position: relative; z-index: 2; min-height: 100svh; }
+  .hero-right { position: absolute; inset: 0; z-index: 0; }
+  .hero-right::after { background: linear-gradient(to top, var(--color-bg) 38%, rgba(12,12,18,0.55) 100%); }
   .hero-bg { inset: 0; }
-  .hero-h1 { font-size: clamp(3.2rem, 9vw, 5rem); }
+  .hero-h1 { font-size: clamp(3rem, 10vw, 5rem); }
+  .hero-sub { max-width: 100%; }
 
+  /* Stats — tighter padding when stacked */
+  .stats-section { padding: 72px 0; }
   .stats-grid { grid-template-columns: 1fr; gap: 0; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--color-border); padding: 40px 24px; }
   .stat-item:last-child { border-bottom: none; }
+  .stat-number { font-size: clamp(3.5rem, 14vw, 5rem); }
+  .stat-suffix { font-size: clamp(1.5rem, 6vw, 2.5rem); }
 
+  /* Bento */
   .bento-grid { grid-template-columns: 1fr; gap: 2px; }
   .bento-card--featured { grid-column: span 1; }
   .bento-card--featured .bento-img-wrap,
-  .bento-card:not(.bento-card--featured) .bento-img-wrap { height: 240px; }
+  .bento-card:not(.bento-card--featured) .bento-img-wrap { height: 220px; }
 
+  /* Leistungen */
   .leistungen-grid { grid-template-columns: 1fr; gap: 2px; }
+  .leistung-card { padding: 32px 24px; }
 
+  /* Über uns */
   .ueber-grid { grid-template-columns: 1fr; }
-  .ueber-img-col { min-height: 300px; }
-  .ueber-text-col { padding: 56px 28px; }
+  .ueber-img-col { min-height: 280px; }
+  .ueber-text-col { padding: 56px 24px; }
 
-  .kontakt-grid { grid-template-columns: 1fr; gap: 40px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+  /* Kontakt */
+  .kontakt-grid { grid-template-columns: 1fr; gap: 32px; }
+  .kontakt-form { padding: 28px 24px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+
+  /* Section sub — full width */
+  .section-sub { max-width: 100%; }
 }
 
+/* Mobile (≤ 768px) */
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  section { padding: 72px 0; }
+  section { padding: 64px 0; }
+  .section-title { font-size: clamp(2rem, 8vw, 3rem); }
+  /* iOS: prevent auto-zoom on input focus */
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; }
 }
 
+/* Small mobile (≤ 480px) */
 @media (max-width: 480px) {
+  /* Top bar — hide long text to stay single-line */
+  .top-bar { font-size: 0.74rem; padding: 8px 16px; }
+  .top-bar-extra { display: none; }
+
+  /* Hero */
+  .hero-left { padding: 108px 20px 52px; }
+  .hero-h1 { font-size: clamp(2.6rem, 12vw, 3.8rem); }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+
+  /* Stats */
+  .stat-item { padding: 32px 20px; }
+  .stat-number { font-size: clamp(3rem, 16vw, 4.5rem); }
+
+  /* Bento */
+  .bento-body { padding: 16px 18px 20px; }
+  .bento-price { font-size: 1.3rem; }
+
+  /* Kontakt */
+  .kontakt-icon { width: 36px; height: 36px; font-size: 0.9rem; }
+  .kontakt-form { padding: 24px 20px; }
+
+  /* WhatsApp — circle on small screens */
   .whatsapp-btn span { display: none; }
   .whatsapp-btn { padding: 14px; border-radius: 50%; }
-  .top-bar { font-size: 0.74rem; }
-  .hero-h1 { font-size: clamp(2.8rem, 11vw, 4rem); }
 }
