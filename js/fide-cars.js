@@ -79,14 +79,7 @@
       if (heroSub) gsap.to(heroSub, { opacity: 1, y: 0, duration: 0.7, delay: 0.75, ease: 'power2.out', from: { opacity: 0, y: 16 } });
       if (heroActions) gsap.to(heroActions, { opacity: 1, y: 0, duration: 0.7, delay: 0.95, ease: 'power2.out', from: { opacity: 0, y: 16 } });
 
-      // Hero BG Parallax
-      var heroBg = document.querySelector('.hero-bg');
-      if (heroBg) {
-        gsap.to(heroBg, {
-          yPercent: 25, ease: 'none',
-          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-        });
-      }
+      // Hero BG Parallax disabled — portrait image needs fixed center positioning
 
       // Clip-path reveal for über-uns image
       gsap.utils.toArray('.reveal-clip').forEach(function (el) {

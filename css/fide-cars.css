@@ -195,14 +195,14 @@ body.menu-open .mobile-backdrop { display: block; }
   position: absolute; inset: 0;
   background-image: url('../images/hero.jpg');
   background-size: cover;
-  background-position: center 8%;
+  background-position: center center;
 }
 .hero-right::after {
   content: '';
   position: absolute; inset: 0;
   background:
     linear-gradient(to right, var(--color-bg) 0%, transparent 22%),
-    linear-gradient(to top, var(--color-bg) 0%, transparent 55%);
+    linear-gradient(to top, var(--color-bg) 0%, transparent 28%);
   pointer-events: none; z-index: 1;
 }
 
@@ -592,9 +592,9 @@ footer {
     min-height: 260px;
     max-height: 480px;
   }
-  .hero-bg { inset: 0; background-size: cover; background-position: center 8%; }
+  .hero-bg { inset: 0; background-size: cover; background-position: center center; }
   .hero-right::after {
-    background: linear-gradient(to top, var(--color-bg) 0%, transparent 55%);
+    background: linear-gradient(to top, var(--color-bg) 0%, transparent 28%);
   }
   .hero-img-mobile { display: none; }    /* only bg used, img is fallback */
   .hero-left {
